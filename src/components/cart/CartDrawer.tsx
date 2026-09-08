@@ -7,7 +7,8 @@ import ProductImage from "@/components/product/ProductImage";
 import { ButtonLink } from "@/components/ui/Button";
 import QuantityStepper from "./QuantityStepper";
 import { useCart } from "./CartProvider";
-import { BagIcon, CloseIcon, TrashIcon } from "@/components/ui/icons";
+import { BagIcon, CloseIcon, TrashIcon, WhatsAppIcon } from "@/components/ui/icons";
+import { buildOrderMessage, buildWhatsAppLink } from "@/lib/whatsapp";
 import styles from "./CartDrawer.module.css";
 
 export default function CartDrawer() {
@@ -15,6 +16,13 @@ export default function CartDrawer() {
     useCart();
   const closeRef = useRef<HTMLButtonElement>(null);
   const lastFocused = useRef<HTMLElement | null>(null);
+
+  const waLink = buildWhatsAppLink(
+    buildOrderMessage({
+      lines: lines.map((l) => ({ name: l.name, size: l.size, qty: l.qty, price: l.price })),
+      subtotal,
+    })
+  );
 
   // Focus management + keyboard escape.
   useEffect(() => {
@@ -152,6 +160,16 @@ export default function CartDrawer() {
               >
                 View Bag
               </ButtonLink>
+              {waLink ? (
+                <a
+                  href={waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.waLink}
+                >
+                  <WhatsAppIcon size={15} /> Or order via WhatsApp
+                </a>
+              ) : null}
             </footer>
           </>
         )}

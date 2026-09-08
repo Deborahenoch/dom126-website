@@ -32,10 +32,10 @@ Requirements: Node.js ≥ 18.18.
 | Shopping cart (drawer + page, persistent, quantity controls) | ✅ Live & tested |
 | Checkout (customer + delivery + gift notes, validation, order references) | ✅ Live & tested |
 | Order confirmation with reference lookup | ✅ Live |
+| WhatsApp ordering (official number: +234 912 916 8474) | ✅ Live — product pages, cart drawer & order confirmation |
 | FAQ accordion (+ FAQ structured data) | ✅ Live |
 | Contact, About, Shipping, Privacy, Terms | ✅ Live (policies marked as drafts) |
 | Online payment (Paystack or similar) | 🔜 Integration point ready |
-| WhatsApp ordering | 🔜 One env variable away |
 | Analytics (GA4 / Meta Pixel) | 🔜 Env-configured, off by default |
 
 **Stack:** Next.js 15 (App Router, TypeScript, static generation) · self-hosted

@@ -236,6 +236,7 @@ console.log("\n[5] Purchase flow: product → add to bag → qty → checkout �
   await assert(await page.getByText("54,000").first().isVisible(), "order subtotal shown on confirmation");
   await assert(await page.getByText("Adaeze Okafor").first().isVisible(), "customer name on confirmation");
   await assert(await page.getByText("Happy birthday").first().isVisible(), "gift note preserved");
+  await assert(await page.getByRole("link", { name: "Send order via WhatsApp" }).isVisible(), "WhatsApp order button on confirmation");
 
   // Cart now empty
   await page.goto(BASE + "/cart", { waitUntil: "networkidle" });
@@ -275,15 +276,36 @@ console.log("\n[6] Custom signature request form");
 }
 
 /* ============================================================
-   7. WHATSAPP PLACEHOLDER HONESTY
+   7. WHATSAPP ORDERING (LIVE) & PAYMENT HONESTY
    ============================================================ */
-console.log("\n[7] Honesty checks (no fake payment / no invented WhatsApp)");
+console.log("\n[7] WhatsApp ordering (official number) & payment honesty");
 {
   const { context, page } = await newPage({ width: 1440, height: 900 });
+
+  // Product page: WhatsApp order button with the official number
+  await page.goto(BASE + "/product/boss-man", { waitUntil: "networkidle" });
+  const waBtn = page.getByRole("link", { name: "Order via WhatsApp" });
+  await assert(await waBtn.isVisible(), "product page shows WhatsApp order button");
+  const href = await waBtn.getAttribute("href");
+  await assert(href.startsWith("https://wa.me/2349129168474"), "WhatsApp link uses official +234 number", href);
+
+  // Cart drawer: WhatsApp ordering option
+  await page.getByRole("button", { name: "Add Boss Man to bag" }).click();
+  await page.waitForTimeout(500);
+  await assert(await page.getByRole("link", { name: "Or order via WhatsApp" }).isVisible(), "cart drawer offers WhatsApp ordering");
+  await page.getByRole("button", { name: "Close bag" }).click();
+  await page.waitForTimeout(400);
+
+  // Checkout payment section: online payment honestly disabled
   await page.goto(BASE + "/checkout", { waitUntil: "networkidle" });
-  await assert(await page.getByText("Coming soon").isVisible(), "online payment honestly marked coming soon");
-  const waLinks = await page.locator('a[href*="wa.me"]').count();
-  await assert(waLinks === 0, "no fake WhatsApp number (unconfigured)", `${waLinks} wa.me links`);
+  const onlinePay = page.locator("#pay-online");
+  await assert(await onlinePay.isDisabled(), "online payment option disabled until integrated");
+  await assert(await page.getByText("Coming soon", { exact: true }).isVisible(), "online payment honestly marked coming soon");
+
+  // Contact page: WhatsApp channel live
+  await page.goto(BASE + "/contact", { waitUntil: "networkidle" });
+  await assert(await page.getByRole("link", { name: "Message DOM126" }).isVisible(), "contact page shows WhatsApp button");
+
   const home = await (await page.request.get(BASE + "/")).text();
   await assert(home.includes("DOM126"), "homepage renders DOM126 content");
   await context.close();

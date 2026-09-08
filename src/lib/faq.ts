@@ -56,7 +56,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "How do I place an order?",
         answer:
-          "Add your fragrance to your bag and proceed to checkout. Once you place your order, a member of the DOM126 team will contact you to confirm it and arrange payment and delivery. WhatsApp ordering is also on the way.",
+          "Add your fragrance to your bag and proceed to checkout. Once you place your order, a member of the DOM126 team will contact you to confirm it and arrange payment and delivery. You can also order directly through WhatsApp — your bag details are prepared for you.",
       },
       {
         question: "Do you deliver within Nigeria?",
