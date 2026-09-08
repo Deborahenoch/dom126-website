@@ -1,0 +1,159 @@
+.footer {
+  position: relative;
+  background: var(--navy-950);
+  color: var(--on-dark-body);
+  border-top: 1px solid rgba(198, 161, 91, 0.25);
+  overflow: hidden;
+}
+
+.top {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding-block: clamp(3.5rem, 7vw, 5.5rem) 2.5rem;
+}
+
+/* ---------- brand column ---------- */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  max-width: 40ch;
+}
+
+.tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-bright);
+}
+
+.brandLine {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--on-dark-body);
+}
+
+.social {
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.socialTitle {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--on-dark-faint);
+}
+
+.socialList {
+  display: flex;
+  gap: 1.4rem;
+  font-size: 0.92rem;
+}
+
+.socialList a {
+  color: var(--on-dark-heading);
+  transition: color 0.25s ease;
+}
+
+.socialList a:hover {
+  color: var(--gold-bright);
+}
+
+.socialSoon {
+  font-size: 0.84rem;
+  color: var(--on-dark-faint);
+}
+
+/* ---------- link columns ---------- */
+.linkCol ul {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.colTitle {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.1rem;
+}
+
+.linkCol a {
+  font-size: 0.94rem;
+  color: var(--on-dark-body);
+  transition: color 0.25s ease;
+}
+
+.linkCol a:hover {
+  color: var(--on-dark-heading);
+}
+
+/* ---------- watermark ---------- */
+.watermark {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(4.5rem, 16.5vw, 13rem);
+  line-height: 0.72;
+  letter-spacing: 0.08em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(198, 161, 91, 0.18);
+  user-select: none;
+  transform: translateY(18%);
+}
+
+/* ---------- bottom bar ---------- */
+.bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem 2rem;
+  padding-block: 1.4rem 1.7rem;
+  border-top: 1px solid rgba(242, 238, 229, 0.09);
+  font-size: 0.78rem;
+  color: var(--on-dark-faint);
+}
+
+.bottomTagline {
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: rgba(198, 161, 91, 0.75);
+}
+
+.bottomLinks {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.bottomLinks a {
+  color: var(--on-dark-faint);
+  transition: color 0.25s ease;
+}
+
+.bottomLinks a:hover {
+  color: var(--gold-bright);
+}
+
+/* ---------- responsive ---------- */
+@media (min-width: 760px) {
+  .top {
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+}

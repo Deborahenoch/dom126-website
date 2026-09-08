@@ -1,0 +1,83 @@
+.frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--navy-900);
+}
+
+.img {
+  object-fit: cover;
+}
+
+/* ---------- branded placeholder plate ---------- */
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--navy-900);
+  background-image:
+    radial-gradient(120% 90% at 20% 0%, rgba(198, 161, 91, 0.16) 0%, rgba(198, 161, 91, 0) 55%),
+    linear-gradient(155deg, var(--navy-800) 0%, var(--navy-900) 52%, var(--navy-950) 100%);
+  color: var(--on-dark-heading);
+}
+
+.innerFrame {
+  position: absolute;
+  inset: clamp(10px, 3.5%, 22px);
+  border: 1px solid rgba(198, 161, 91, 0.3);
+  pointer-events: none;
+}
+
+.plate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.monogram {
+  display: grid;
+  place-items: center;
+  width: clamp(52px, 22%, 84px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(198, 161, 91, 0.55);
+  border-radius: 50%;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 62.5%, 2.4rem);
+  font-weight: 500;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.plateName {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 100%, 1.7rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  max-width: 88%;
+}
+
+.plateMeta {
+  font-size: clamp(0.6rem, 52%, 0.72rem);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(198, 161, 91, 0.85);
+}
+
+.plateNote {
+  position: absolute;
+  bottom: clamp(16px, 6%, 26px);
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--on-dark-faint);
+}

@@ -1,0 +1,38 @@
+.nav {
+  margin-bottom: 1.75rem;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.link {
+  color: var(--on-dark-faint);
+  transition: color 0.25s ease;
+}
+
+.link:hover {
+  color: var(--gold-bright);
+}
+
+.current {
+  color: var(--gold);
+}
+
+.separator {
+  color: var(--on-dark-faint);
+  opacity: 0.6;
+}

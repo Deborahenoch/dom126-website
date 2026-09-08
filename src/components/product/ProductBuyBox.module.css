@@ -1,0 +1,29 @@
+.root {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1.8rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.9rem;
+}
+
+.grow {
+  flex: 1;
+  min-width: 200px;
+}
+
+.waBtn {
+  width: 100%;
+}
+
+.bespokeNote {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  padding: 0.9rem 1.1rem;
+  border-left: 2px solid var(--gold);
+  background: var(--paper);
+}

@@ -1,0 +1,50 @@
+.root {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 720px;
+}
+
+.center {
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
+}
+
+.center .eyebrow::after {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  flex: none;
+}
+
+.eyebrow {
+  color: var(--gold-deep);
+}
+
+.dark .eyebrow {
+  color: var(--gold);
+}
+
+.title {
+  color: var(--ink);
+}
+
+.dark .title {
+  color: var(--on-dark-heading);
+}
+
+.intro {
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 58ch;
+}
+
+.dark .intro {
+  color: var(--on-dark-body);
+}
+
+.center .intro {
+  margin-inline: auto;
+}

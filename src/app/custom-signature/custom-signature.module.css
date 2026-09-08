@@ -1,0 +1,194 @@
+/* ---------- what it means ---------- */
+.meansGrid {
+  display: grid;
+  gap: 3rem;
+}
+
+.meansCopy {
+  margin-top: 1.2rem;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  max-width: 52ch;
+}
+
+.meansList {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line-light);
+}
+
+.mean {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+  padding-block: 1.3rem;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.meanTerm {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.meanDef {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 52ch;
+}
+
+/* ---------- process ---------- */
+.process {
+  position: relative;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  margin-top: 3rem;
+  background: var(--line-dark);
+  border: 1px solid var(--line-dark);
+  list-style: none;
+}
+
+.processStep {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1.9rem 1.7rem 2.1rem;
+  background: var(--navy-950);
+  height: 100%;
+  align-content: start;
+}
+
+.processIndex {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.processTitle {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--on-dark-heading);
+  margin-top: 0.3rem;
+}
+
+.processCopy {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: var(--on-dark-body);
+}
+
+.priceBand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 1.8rem 2rem;
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  background-color: var(--navy-950);
+  background-image: linear-gradient(120deg, rgba(198, 161, 91, 0.07), rgba(198, 161, 91, 0.015));
+}
+
+.priceLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.35rem;
+}
+
+.priceValue {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 600;
+  color: var(--on-dark-heading);
+}
+
+.priceChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.priceChip {
+  padding: 0.42rem 0.9rem;
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+/* ---------- request ---------- */
+.requestGrid {
+  display: grid;
+  gap: 3rem;
+}
+
+.requestNotes {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.8rem;
+}
+
+.requestNotes li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.requestOrnament {
+  color: var(--gold-deep);
+  flex: none;
+  transform: translateY(1px);
+}
+
+.formWrap {
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+}
+
+@media (min-width: 640px) {
+  .processGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mean {
+    grid-template-columns: 200px 1fr;
+    gap: 1.2rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .meansGrid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4.5rem;
+  }
+
+  .processGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .requestGrid {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+  }
+}

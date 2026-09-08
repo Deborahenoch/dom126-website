@@ -1,0 +1,92 @@
+.placeholder {
+  margin-top: 3rem;
+}
+
+.placeholderCards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+.placeholderCard {
+  display: grid;
+  justify-items: center;
+  gap: 0.8rem;
+  padding: 2rem 1.5rem;
+  border: 1px dashed rgba(16, 27, 49, 0.25);
+  background: transparent;
+}
+
+.stars,
+.starsFaint {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.starsFaint {
+  opacity: 0.45;
+}
+
+.placeholderText {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--ink-faint);
+}
+
+.placeholderCta {
+  display: grid;
+  justify-items: center;
+  gap: 1.3rem;
+  margin-top: 2.4rem;
+  text-align: center;
+}
+
+.placeholderLine {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  max-width: 44ch;
+}
+
+/* ---------- real-review cards (render when testimonials are added) ---------- */
+.grid {
+  display: grid;
+  gap: 1.4rem;
+  margin-top: 3rem;
+}
+
+.card {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem 1.8rem;
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+}
+
+.quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.attribution {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.location {
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+
+@media (min-width: 700px) {
+  .placeholderCards,
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
