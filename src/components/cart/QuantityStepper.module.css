@@ -1,0 +1,36 @@
+.group {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(16, 27, 49, 0.25);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.btn {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 48px;
+  color: var(--ink-soft);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--cream-2);
+  color: var(--ink);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.value {
+  min-width: 3ch;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}

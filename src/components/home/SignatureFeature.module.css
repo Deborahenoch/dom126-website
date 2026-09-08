@@ -1,0 +1,163 @@
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/brand/signature-texture.jpg");
+  background-size: cover;
+  background-position: left center;
+  opacity: 0.3;
+  mask-image: linear-gradient(90deg, transparent 0%, black 45%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 45%);
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--gold);
+}
+
+.title {
+  margin-top: 1.1rem;
+  color: var(--on-dark-heading);
+}
+
+.titleAccent {
+  font-style: italic;
+  color: var(--gold-bright);
+}
+
+.copy {
+  margin-top: 1.3rem;
+  max-width: 52ch;
+  font-size: clamp(0.98rem, 1.4vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--on-dark-body);
+}
+
+.means {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.7rem;
+}
+
+.means li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  font-size: 0.95rem;
+  color: var(--on-dark-body);
+}
+
+.meansOrnament {
+  color: var(--gold);
+  flex: none;
+  transform: translateY(1px);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2.2rem;
+}
+
+/* ---------- invitation card ---------- */
+.invitation {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.9rem;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.8rem, 5vw, 3.5rem);
+  background-color: var(--navy-850);
+  background-image:
+    radial-gradient(100% 80% at 50% 0%, rgba(198, 161, 91, 0.12) 0%, rgba(198, 161, 91, 0) 60%),
+    linear-gradient(160deg, var(--navy-850) 0%, var(--navy-950) 100%);
+  border: 1px solid rgba(198, 161, 91, 0.45);
+}
+
+.invitationFrame {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(198, 161, 91, 0.28);
+  pointer-events: none;
+}
+
+.invitationEyebrow {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.invitationLine {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 500;
+  color: var(--on-dark-heading);
+}
+
+.invitationDivider {
+  width: 3rem;
+  height: 1px;
+  background: rgba(198, 161, 91, 0.5);
+}
+
+.invitationPrice {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.1rem);
+  font-weight: 600;
+  color: var(--on-dark-heading);
+}
+
+.invitationChips {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.chip {
+  padding: 0.42rem 0.9rem;
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}
+
+.invitationNote {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--on-dark-faint);
+  max-width: 30ch;
+}
+
+.invitationLink {
+  margin-top: 0.8rem;
+  color: var(--gold-bright);
+}
+
+.invitationLink:hover {
+  color: var(--on-dark-heading);
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4.5rem;
+  }
+}

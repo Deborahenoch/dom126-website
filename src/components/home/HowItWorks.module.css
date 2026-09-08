@@ -1,0 +1,110 @@
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  margin-top: 3rem;
+  background: var(--line-dark);
+  border-top: 1px solid var(--line-dark);
+  border-left: 1px solid var(--line-dark);
+  border-right: 1px solid var(--line-dark);
+  counter-reset: step;
+}
+
+.stepCell {
+  background: var(--navy-950);
+}
+
+.step {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1.9rem 1.7rem 2.1rem;
+  height: 100%;
+}
+
+.stepIndex {
+  font-family: var(--font-serif);
+  font-size: 2.3rem;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.stepTitle {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--on-dark-heading);
+  margin-top: 0.35rem;
+}
+
+.stepCopy {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: var(--on-dark-body);
+  max-width: 30ch;
+}
+
+/* ---------- signature path ---------- */
+.signaturePath {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding: 1.6rem 1.8rem;
+  border: 1px solid rgba(198, 161, 91, 0.32);
+  background-color: var(--navy-950);
+  background-image: linear-gradient(120deg, rgba(198, 161, 91, 0.06), rgba(198, 161, 91, 0.01));
+}
+
+.signatureLabel {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.signatureSteps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem 0.9rem;
+}
+
+.signatureStep {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--on-dark-heading);
+}
+
+.signatureArrow {
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+@media (min-width: 640px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .signaturePath {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}

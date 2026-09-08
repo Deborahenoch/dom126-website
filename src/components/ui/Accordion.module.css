@@ -1,0 +1,69 @@
+.accordion {
+  border-top: 1px solid var(--line-light);
+}
+
+.item {
+  border-bottom: 1px solid var(--line-light);
+}
+
+.heading {
+  margin: 0;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.35rem 0.25rem;
+  text-align: left;
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 500;
+  color: var(--ink);
+  transition: color 0.25s ease;
+}
+
+.trigger:hover {
+  color: var(--gold-deep);
+}
+
+.chevron {
+  flex: none;
+  color: var(--gold-deep);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.item[data-open="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-out);
+}
+
+.item[data-open="true"] .panel {
+  grid-template-rows: 1fr;
+}
+
+.panelInner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.panelInner p {
+  padding: 0 0.25rem 1.5rem;
+  padding-right: 3rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+@media (max-width: 640px) {
+  .panelInner p {
+    padding-right: 0.25rem;
+  }
+}

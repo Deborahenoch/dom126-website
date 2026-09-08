@@ -1,0 +1,260 @@
+.grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+/* ---------- form ---------- */
+.formCol {
+  display: grid;
+  gap: 2.2rem;
+}
+
+.fieldset {
+  border: none;
+}
+
+.legend {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 1.3rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--line-light);
+  width: 100%;
+}
+
+.legendIndex {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold-deep);
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+/* ---------- gift toggle ---------- */
+.giftToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+}
+
+.giftCheckbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--gold-deep);
+  cursor: pointer;
+}
+
+.giftLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
+}
+
+/* ---------- payment ---------- */
+.paymentOptions {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.paymentOption {
+  display: flex;
+  gap: 0.9rem;
+  padding: 1.05rem 1.2rem;
+  border: 1px solid var(--line-light);
+  background: var(--paper);
+  transition: border-color 0.25s ease;
+}
+
+.paymentOption:has(:checked) {
+  border-color: var(--gold-deep);
+}
+
+.paymentDisabled {
+  opacity: 0.62;
+}
+
+.paymentRadio {
+  margin-top: 0.3rem;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--gold-deep);
+  flex: none;
+}
+
+.paymentOption label {
+  cursor: pointer;
+}
+
+.paymentDisabled label {
+  cursor: not-allowed;
+}
+
+.paymentName {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.soonTag {
+  padding: 0.22rem 0.55rem;
+  border: 1px solid rgba(138, 109, 47, 0.5);
+  border-radius: 999px;
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  color: var(--gold-deep);
+}
+
+.paymentDesc {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* ---------- summary ---------- */
+.summary {
+  display: grid;
+  gap: 0.95rem;
+  align-content: start;
+  padding: 1.8rem 1.7rem;
+  background: var(--navy-950);
+  color: var(--on-dark-body);
+  border: 1px solid rgba(198, 161, 91, 0.3);
+  height: fit-content;
+}
+
+.summaryTitle {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.summaryItems {
+  display: grid;
+  gap: 0.7rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.92rem;
+}
+
+.summaryName {
+  color: var(--on-dark-heading);
+}
+
+.summaryQty {
+  color: var(--on-dark-faint);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.92rem;
+}
+
+.summaryValue {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.summaryRowMuted {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--on-dark-faint);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.summaryNote {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--on-dark-faint);
+}
+
+.terms {
+  font-size: 0.74rem;
+  color: var(--on-dark-faint);
+  text-align: center;
+}
+
+.terms a {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- empty ---------- */
+.empty {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding-block: 2.5rem;
+}
+
+.emptyTitle {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.emptyText {
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.3rem;
+}
+
+@media (min-width: 640px) {
+  .fields {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1.45fr 1fr;
+    gap: 3.5rem;
+  }
+
+  .summary {
+    position: sticky;
+    top: 6.5rem;
+  }
+}

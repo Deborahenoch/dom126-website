@@ -1,0 +1,32 @@
+{
+  "name": "dom126-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official e-commerce website for DOM126 Fragrances — Smell Good. Be Remembered.",
+  "scripts": {
+    "predev": "node scripts/generate-image-manifest.mjs",
+    "dev": "next dev",
+    "prebuild": "node scripts/generate-image-manifest.mjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "15.5.25",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.25",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}

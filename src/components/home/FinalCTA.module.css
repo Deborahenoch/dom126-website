@@ -1,0 +1,61 @@
+.section {
+  position: relative;
+  padding-block: clamp(6rem, 14vw, 11rem);
+  background: var(--navy-950);
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/brand/cta-texture.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(75% 75% at 50% 50%, rgba(7, 13, 26, 0.42) 0%, rgba(7, 13, 26, 0.88) 100%),
+    linear-gradient(180deg, var(--navy-950) 0%, rgba(7, 13, 26, 0.4) 30%, rgba(7, 13, 26, 0.4) 70%, var(--navy-950) 100%);
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 1.3rem;
+}
+
+.eyebrow {
+  color: var(--gold);
+}
+
+.title {
+  font-size: clamp(2.4rem, 6.5vw, 4.8rem);
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--on-dark-heading);
+  max-width: 18ch;
+}
+
+.copy {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--on-dark-body);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+  margin-top: 1.2rem;
+}
+
+@media (max-width: 640px) {
+  .ctas :global(.btn) {
+    width: 100%;
+  }
+}

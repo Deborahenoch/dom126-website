@@ -1,0 +1,47 @@
+.wrap {
+  max-width: 780px;
+  display: grid;
+  gap: 1.4rem;
+}
+
+.draftNote {
+  padding: 1rem 1.2rem;
+  border-left: 2px solid var(--gold-deep);
+  background: var(--paper);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.updated {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.intro {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.section {
+  display: grid;
+  gap: 0.75rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line-light);
+}
+
+.heading {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.paragraph {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}

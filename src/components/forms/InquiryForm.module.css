@@ -1,0 +1,101 @@
+.form {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.submitRow {
+  display: grid;
+  gap: 0.9rem;
+  justify-items: start;
+}
+
+.submitRow :global(.btn) {
+  min-width: min(320px, 100%);
+}
+
+.privacy {
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  max-width: 52ch;
+}
+
+.privacy a {
+  color: var(--gold-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- confirmation ---------- */
+.confirmation {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.9rem;
+  padding: clamp(2.2rem, 5vw, 3.5rem);
+  border: 1px solid rgba(138, 109, 47, 0.4);
+  background: var(--paper);
+}
+
+.confirmIcon {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border: 1px solid var(--gold-deep);
+  border-radius: 50%;
+  color: var(--gold-deep);
+  margin-bottom: 0.4rem;
+}
+
+.confirmTitle {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.confirmRef {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.confirmCopy {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.confirmWa {
+  margin-top: 0.6rem;
+}
+
+.reset {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.reset:hover {
+  color: var(--ink);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

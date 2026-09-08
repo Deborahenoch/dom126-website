@@ -1,0 +1,47 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  margin-top: 3rem;
+  background: var(--line-light);
+  border: 1px solid var(--line-light);
+}
+
+.cell {
+  background: var(--cream);
+}
+
+.benefit {
+  display: grid;
+  gap: 0.7rem;
+  padding: 2rem 1.8rem 2.2rem;
+  height: 100%;
+  transition: background-color 0.35s ease;
+}
+
+.benefit:hover {
+  background: var(--paper);
+}
+
+.ornament {
+  color: var(--gold-deep);
+}
+
+.title {
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.copy {
+  font-size: 0.94rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 34ch;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,54 @@
+.hero {
+  position: relative;
+  padding-block: clamp(3.75rem, 8vw, 6.5rem) clamp(3.25rem, 7vw, 5.5rem);
+  background-color: var(--navy-900);
+  background-image:
+    radial-gradient(90% 70% at 85% 0%, rgba(27, 48, 85, 0.55) 0%, rgba(27, 48, 85, 0) 60%),
+    linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%);
+  color: var(--on-dark-body);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/brand/story-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  mix-blend-mode: screen;
+}
+
+.hero > div {
+  position: relative;
+}
+
+.compact {
+  padding-block: clamp(3rem, 6vw, 4.75rem) clamp(2.75rem, 5vw, 4rem);
+}
+
+.eyebrow {
+  color: var(--gold);
+}
+
+.title {
+  margin-top: 1.1rem;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  color: var(--on-dark-heading);
+  max-width: 18ch;
+}
+
+.description {
+  margin-top: 1.15rem;
+  max-width: 58ch;
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.75;
+}
+
+.actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}

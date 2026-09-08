@@ -1,0 +1,99 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+  border-radius: var(--radius);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.card:hover {
+  border-color: rgba(138, 109, 47, 0.45);
+  box-shadow: 0 30px 60px -32px rgba(16, 27, 49, 0.28);
+}
+
+.media {
+  display: block;
+  overflow: hidden;
+}
+
+.media :global(img) {
+  transition: transform 1.1s var(--ease-out);
+}
+
+.card:hover .media :global(img) {
+  transform: scale(1.045);
+}
+
+.body {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1.35rem 1.4rem 1.5rem;
+}
+
+.topRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.name a {
+  transition: color 0.25s ease;
+}
+
+.card:hover .name a {
+  color: var(--gold-deep);
+}
+
+.price {
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tagline {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: var(--gold-deep);
+}
+
+.blurb {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  margin-top: 0.7rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--line-light);
+}
+
+.view {
+  color: var(--ink);
+}
+
+.view:hover {
+  color: var(--gold-deep);
+}
+
+.addBtn {
+  padding: 0.68rem 1.15rem;
+  font-size: 0.68rem;
+  flex: none;
+}

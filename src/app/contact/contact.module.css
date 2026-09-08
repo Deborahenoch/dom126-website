@@ -1,0 +1,93 @@
+.grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.formWrap {
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+}
+
+.formTitle {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 1.6rem;
+}
+
+/* ---------- aside ---------- */
+.aside {
+  display: grid;
+  gap: 1.8rem;
+  align-content: start;
+}
+
+.asideTitle {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.channel {
+  display: grid;
+  gap: 0.5rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.channelName {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.channelNote {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+
+.channelLink {
+  font-size: 0.95rem;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.channelLink:hover {
+  color: var(--gold-deep);
+}
+
+.waButton {
+  justify-self: start;
+}
+
+.quickLinks ul {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.4rem;
+}
+
+.quickLinks a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.92rem;
+  color: var(--ink);
+  transition: color 0.25s ease;
+}
+
+.quickLinks a:hover {
+  color: var(--gold-deep);
+}
+
+@media (min-width: 980px) {
+  .grid {
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 4rem;
+  }
+}

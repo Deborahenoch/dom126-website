@@ -1,0 +1,153 @@
+/* ---------- idea ---------- */
+.ideaGrid {
+  display: grid;
+  gap: 3rem;
+}
+
+.ideaCopy {
+  margin-top: 1.2rem;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  max-width: 50ch;
+}
+
+.beliefs {
+  display: grid;
+  border-top: 1px solid var(--line-light);
+}
+
+.belief {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+  padding-block: 1.25rem;
+  border-bottom: 1px solid var(--line-light);
+}
+
+.beliefTerm {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.beliefDef {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- tagline band ---------- */
+.band {
+  position: relative;
+  padding-block: clamp(5rem, 11vw, 8rem);
+  background: var(--navy-950);
+  overflow: hidden;
+}
+
+.bandBg {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/brand/cta-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+}
+
+.band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(70% 70% at 50% 50%, rgba(7, 13, 26, 0.35) 0%, rgba(7, 13, 26, 0.85) 100%);
+}
+
+.bandInner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.bandTagline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  font-weight: 500;
+  line-height: 1.12;
+  color: var(--on-dark-heading);
+}
+
+.bandAccent {
+  font-style: italic;
+  color: var(--gold-bright);
+}
+
+/* ---------- pillars ---------- */
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  margin-top: 3rem;
+  background: var(--line-light);
+  border: 1px solid var(--line-light);
+}
+
+.pillar {
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+  padding: 1.9rem 1.7rem 2.1rem;
+  background: var(--cream);
+  height: 100%;
+  transition: background-color 0.35s ease;
+}
+
+.pillar:hover {
+  background: var(--paper);
+}
+
+.pillarOrnament {
+  color: var(--gold-deep);
+}
+
+.pillarTitle {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.pillarCopy {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 34ch;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2.6rem;
+}
+
+@media (min-width: 640px) {
+  .belief {
+    grid-template-columns: 200px 1fr;
+    gap: 1.2rem;
+  }
+
+  .pillars {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 980px) {
+  .ideaGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5rem;
+  }
+
+  .ideaSticky {
+    position: sticky;
+    top: 7rem;
+  }
+}
