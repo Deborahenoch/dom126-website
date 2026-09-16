@@ -47,6 +47,21 @@ get their own preview URL.
    `alternates.canonical`).
 4. Vercel shows the DNS records to create (same values as the table below).
 
+### Canonical host — pick one and match the code
+
+The site emits canonical URLs (`siteConfig.url`, `alternates.canonical`, sitemap,
+JSON-LD) on the **apex** host, `https://dom126fragrance.store`. A domain that
+redirects to the other host therefore contradicts the canonical tag. Keep both
+in sync:
+
+| Preferred host | What to do |
+| --- | --- |
+| `dom126fragrance.store` (current code default) | In **Settings → Domains**, open the apex domain and set it as **Primary** — Vercel then redirects `www` → apex. |
+| `www.dom126fragrance.store` | Keep `www` primary, and set `NEXT_PUBLIC_SITE_URL="https://www.dom126fragrance.store"` in **Settings → Environment Variables**, then redeploy. |
+
+> As deployed, `www` is currently the primary domain (apex 301s to `www`), so set
+> the apex to primary **or** set `NEXT_PUBLIC_SITE_URL` to the `www` host.
+
 ---
 
 ## 3. DNS records at Hostinger
