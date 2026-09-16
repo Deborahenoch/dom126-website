@@ -45,9 +45,10 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
+    // Only the card size is pinned here. Title, description and image fall back
+    // to each page's Open Graph values, so a link shared from any page previews
+    // that page rather than the homepage.
     card: "summary_large_image",
-    title: "DOM126 Fragrances | Smell Good. Be Remembered.",
-    description: siteConfig.description,
   },
   robots: {
     index: true,
