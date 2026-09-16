@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import availableImages from "@/lib/image-manifest.json";
 import { categoryLabels, getProduct, products } from "@/lib/products";
+import { formatPrice } from "@/lib/format";
 import { siteConfig } from "@/lib/site-config";
+import { pageMetadata } from "@/lib/seo";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import Price from "@/components/ui/Price";
 import ProductImage from "@/components/product/ProductImage";
@@ -26,28 +29,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!product) return { title: "Product Not Found" };
 
   const path = `/product/${product.slug}`;
-  const description = `${product.tagline} ${product.blurb} ${product.size}, ₦${product.price.toLocaleString("en-NG")}.`;
+  const description = `${product.tagline} ${product.blurb} ${product.size}, ${formatPrice(
+    product.price
+  )}.`;
+
+  /**
+   * Share the real photograph as soon as it exists (see the build-time image
+   * manifest); until then the brand texture stands in, so og:image never points
+   * at a file that 404s.
+   */
+  const hasPhotograph = (availableImages as string[]).includes(product.image);
+  const images = hasPhotograph
+    ? [{ url: product.image, alt: `${product.name} — DOM126 Fragrances` }]
+    : undefined;
+
+  const metadata = pageMetadata({ title: product.name, description, path, images });
 
   return {
+    ...metadata,
+    // The document title carries the size; og:title stays short and brandy.
     title: `${product.name} — ${product.size}`,
-    description,
-    alternates: { canonical: path },
-    openGraph: {
-      type: "website",
-      siteName: siteConfig.name,
-      locale: "en_NG",
-      url: `${siteConfig.url}${path}`,
-      title: `${product.name} | DOM126`,
-      description,
-      images: [
-        {
-          url: "/images/brand/hero-texture.jpg",
-          width: 1376,
-          height: 768,
-          alt: `${product.name} — DOM126 Fragrances`,
-        },
-      ],
-    },
   };
 }
 

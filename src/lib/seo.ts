@@ -9,6 +9,14 @@ import { siteConfig } from "@/lib/site-config";
  * the whole site (one place to change, every page updated).
  */
 
+/** A social-card image: the site-relative path plus the details scrapers want. */
+export interface SocialImage {
+  url: string;
+  width?: number;
+  height?: number;
+  alt: string;
+}
+
 interface PageMetadataInput {
   /** Page title without the brand suffix, e.g. "Shop Fragrances". */
   title: string;
@@ -16,6 +24,8 @@ interface PageMetadataInput {
   description: string;
   /** Route path used for the canonical URL, e.g. "/shop". */
   path: string;
+  /** Overrides the social card image; defaults to the brand texture. */
+  images?: SocialImage[];
 }
 
 const OG_IMAGE = {
@@ -32,7 +42,12 @@ const OG_IMAGE = {
  * The `<title>` itself is still rendered through the root layout template
  * ("%s | DOM126 Fragrances"); `og:title` uses the shorter brand form.
  */
-export function pageMetadata({ title, description, path }: PageMetadataInput): Metadata {
+export function pageMetadata({
+  title,
+  description,
+  path,
+  images,
+}: PageMetadataInput): Metadata {
   return {
     title,
     description,
@@ -46,7 +61,7 @@ export function pageMetadata({ title, description, path }: PageMetadataInput): M
       url: `${siteConfig.url}${path}`,
       title: `${title} | DOM126`,
       description,
-      images: [OG_IMAGE],
+      images: images ?? [OG_IMAGE],
     },
   };
 }
