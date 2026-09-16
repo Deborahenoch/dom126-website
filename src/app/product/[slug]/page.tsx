@@ -24,13 +24,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return { title: "Product Not Found" };
+
+  const path = `/product/${product.slug}`;
+  const description = `${product.tagline} ${product.blurb} ${product.size}, ₦${product.price.toLocaleString("en-NG")}.`;
+
   return {
     title: `${product.name} — ${product.size}`,
-    description: `${product.tagline} ${product.blurb} ${product.size}, ₦${product.price.toLocaleString("en-NG")}.`,
-    alternates: { canonical: `/product/${product.slug}` },
+    description,
+    alternates: { canonical: path },
     openGraph: {
-      title: `${product.name} | DOM126 Fragrances`,
-      description: product.blurb,
+      type: "website",
+      siteName: siteConfig.name,
+      locale: "en_NG",
+      url: `${siteConfig.url}${path}`,
+      title: `${product.name} | DOM126`,
+      description,
+      images: [
+        {
+          url: "/images/brand/hero-texture.jpg",
+          width: 1376,
+          height: 768,
+          alt: `${product.name} — DOM126 Fragrances`,
+        },
+      ],
     },
   };
 }
@@ -53,7 +69,10 @@ export default async function ProductPage({ params }: PageProps) {
       "@type": "Offer",
       priceCurrency: "NGN",
       price: product.price,
-      availability: "https://schema.org/InStock",
+      availability:
+        product.availability === "in-stock"
+          ? "https://schema.org/InStock"
+          : "https://schema.org/PreOrder",
       url: `${siteConfig.url}/product/${product.slug}`,
     },
   };

@@ -5,14 +5,15 @@ import Reveal from "@/components/ui/Reveal";
 import Ornament from "@/components/ui/Ornament";
 import Price from "@/components/ui/Price";
 import InquiryForm from "@/components/forms/InquiryForm";
+import { pageMetadata } from "@/lib/seo";
 import styles from "./custom-signature.module.css";
 
-export const metadata: Metadata = {
-  title: "Custom Signature Perfume — Your Scent. Your Identity.",
+export const metadata: Metadata = pageMetadata({
+  title: "Custom Signature Perfume",
   description:
     "A custom-made signature perfume created specifically for one individual, on request. Exclusive, personal and unmistakably yours — ₦98,000, 100ml.",
-  alternates: { canonical: "/custom-signature" },
-};
+  path: "/custom-signature",
+});
 
 const MEANS = [
   {

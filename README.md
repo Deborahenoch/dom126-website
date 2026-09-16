@@ -138,7 +138,8 @@ geometry (grid columns, sticky header, touch targets).
 src/
   app/                  # routes (home, shop, product/[slug], custom-signature,
                         # cart, checkout(+confirmation), about, faq, contact,
-                        # shipping, privacy, terms, sitemap, robots)
+                        # shipping, privacy, terms, sitemap, robots,
+                        # manifest.webmanifest, favicon/apple icons)
   components/
     brand/              # Logo
     cart/               # CartProvider (state + persistence), drawer, steppers
@@ -149,7 +150,8 @@ src/
     legal/              # Policy page layout
     product/            # Cards, gallery w/ placeholder fallback, buy box
     ui/                 # Buttons, accordion, breadcrumbs, reveal, price…
-  lib/                  # products, site-config, faq, orders, whatsapp, fonts
+  lib/                  # products, site-config, seo (shared metadata), faq,
+                        # orders, whatsapp, fonts
 scripts/                # build tooling + QA suites
 public/images/          # drop real photography here (see table above)
 ```
@@ -159,6 +161,9 @@ public/images/          # drop real photography here (see table above)
 Deploys cleanly to Vercel (or any Node host): set the environment variables
 above, point the domain at the deployment, and `NEXT_PUBLIC_SITE_URL` makes all
 canonical URLs, Open Graph tags and the sitemap production-ready.
+
+Step-by-step instructions — Vercel import, the `dom126fragrance.store` domain and
+the Hostinger DNS records — are in **[DEPLOYMENT.md](DEPLOYMENT.md)**.
 
 ---
 

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import LegalArticle from "@/components/legal/LegalArticle";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
   description: "How DOM126 collects, uses and protects your information.",
-  alternates: { canonical: "/privacy" },
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

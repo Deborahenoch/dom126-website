@@ -14,7 +14,7 @@ export const siteConfig = {
   shortName: "DOM126",
   tagline: "Smell Good. Be Remembered.",
   description:
-    "Discover DOM126 premium fragrances designed to express confidence, individuality and unforgettable presence. Explore our collection and create your custom signature scent.",
+    "Discover DOM126 premium fragrances designed to express confidence, individuality and unforgettable presence. Create your custom signature scent.",
 
   /** Canonical production URL (used for SEO, Open Graph and the sitemap). */
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://dom126fragrance.store",

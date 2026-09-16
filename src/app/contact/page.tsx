@@ -7,14 +7,15 @@ import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact DOM126",
   description:
     "Questions about an order, a fragrance or the Custom Signature Perfume? Send DOM126 a message — every enquiry is answered personally.",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const waLink = buildWhatsAppLink("Hello DOM126! I have a question.");
