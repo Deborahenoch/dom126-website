@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import { generateReference } from "@/lib/format";
 import { saveInquiry } from "@/lib/orders";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
@@ -327,7 +328,7 @@ export default function InquiryForm({ type }: Props) {
         <p className={styles.privacy}>
           Your details are used only to respond to your{" "}
           {isSignature ? "request" : "message"} — see our{" "}
-          <a href="/privacy">privacy policy</a>.
+          <Link href="/privacy">privacy policy</Link>.
         </p>
       </div>
     </form>

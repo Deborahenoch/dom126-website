@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import LegalArticle from "@/components/legal/LegalArticle";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Shipping & Delivery",
   description:
     "How DOM126 orders are confirmed and delivered — across Nigeria today, with international delivery on the horizon.",
-  alternates: { canonical: "/shipping" },
-};
+  path: "/shipping",
+});
 
 export default function ShippingPage() {
   return (

@@ -4,14 +4,15 @@ import Accordion from "@/components/ui/Accordion";
 import Reveal from "@/components/ui/Reveal";
 import { faqGroups } from "@/lib/faq";
 import { ButtonLink } from "@/components/ui/Button";
+import { pageMetadata } from "@/lib/seo";
 import styles from "./faq.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Frequently Asked Questions",
   description:
     "Sizes, prices, the Custom Signature experience, ordering, delivery within Nigeria and more — answers to common DOM126 questions.",
-  alternates: { canonical: "/faq" },
-};
+  path: "/faq",
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",

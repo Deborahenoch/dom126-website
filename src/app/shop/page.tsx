@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import ShopGrid from "@/components/product/ShopGrid";
 import Reveal from "@/components/ui/Reveal";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Shop Fragrances",
   description:
     "Explore the DOM126 collection — Boss Man, Ephata and Sweet Savour, each 100ml, plus the Custom-Made Signature Perfume created for one person only.",
-  alternates: { canonical: "/shop" },
-};
+  path: "/shop",
+});
 
 type Category = "all" | "fragrance" | "bespoke";
 

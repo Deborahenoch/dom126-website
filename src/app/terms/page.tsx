@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import LegalArticle from "@/components/legal/LegalArticle";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms & Conditions",
   description: "The terms that govern your use of the DOM126 website and services.",
-  alternates: { canonical: "/terms" },
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

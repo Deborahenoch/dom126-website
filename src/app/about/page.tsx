@@ -4,14 +4,15 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 import Ornament from "@/components/ui/Ornament";
 import { ButtonLink } from "@/components/ui/Button";
+import { pageMetadata } from "@/lib/seo";
 import styles from "./about.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "About DOM126",
   description:
-    "DOM126 is a premium Nigerian fragrance house crafting scents designed for confidence, individuality and unforgettable presence — serving Nigeria today, and the wider African market tomorrow.",
-  alternates: { canonical: "/about" },
-};
+    "DOM126 is a premium Nigerian fragrance house crafting scents for confidence, individuality and unforgettable presence — born in Nigeria, made for the continent.",
+  path: "/about",
+});
 
 const BELIEFS = [
   {

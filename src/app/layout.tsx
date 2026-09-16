@@ -27,11 +27,13 @@ export const metadata: Metadata = {
     "Ephata",
     "Sweet Savour",
   ],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: "DOM126 Fragrances | Smell Good. Be Remembered.",
-    description: siteConfig.description,
+    locale: "en_NG",
     url: siteConfig.url,
     images: [
       {
@@ -67,18 +69,44 @@ const organizationJsonLd = {
   slogan: siteConfig.tagline,
   description: siteConfig.description,
   url: siteConfig.url,
-  logo: `${siteConfig.url}/icon.svg`,
+  logo: `${siteConfig.url}/icons/icon-512.png`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+2349129168474",
+    contactType: "customer service",
+    areaServed: "NG",
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  alternateName: "DOM126",
+  url: siteConfig.url,
+  description: siteConfig.description,
+  inLanguage: "en-NG",
+  publisher: {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/icons/icon-512.png`,
+  },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
+    <html lang="en-NG" className={`${cormorant.variable} ${manrope.variable}`}>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <CartProvider>
           <Header />
