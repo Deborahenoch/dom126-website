@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { reconstructions, reconstructionFamilies, quantifiedLineCounts } from "@/lib/perfumery/classics";
 import { getMaterial } from "@/lib/perfumery/materials";
-import styles from "../atlas.module.css";
+import styles from "@/components/atlas/atlas.module.css";
 import type { Reconstruction } from "@/lib/perfumery/types";
 
-export const metadata: Metadata = {
-  title: "Classic Studies",
+export const metadata: Metadata = pageMetadata({
+  title: "Perfumery Atlas — Classic Studies",
   description:
-    "Twenty-one documented structural reconstructions of great perfumes from published GC analysis, grouped into six families, with quantified loadings, lineage, and the substitutions needed to rebuild any of them legally today.",
-};
+    "30 documented structural reconstructions of classic perfumes from published GC analysis, in six families, with quantified loadings and legal substitutions.",
+  path: "/atlas/classics",
+});
 
 export default function ClassicsPage() {
   const totalQuantified = quantifiedLineCounts.reduce((s, r) => s + r.quantifiedLines, 0);
@@ -146,7 +148,7 @@ export default function ClassicsPage() {
         {/* Cross-cutting lessons */}
         <div className={styles.sectionHead} style={{ marginTop: "2rem" }}>
           <span className={`eyebrow eyebrow--rule ${styles.sectionEyebrow}`}>What the set teaches</span>
-          <h2 className="h3">Seven patterns that run through all twenty-one studies</h2>
+          <h2 className="h3">Seven patterns that run through all thirty studies</h2>
         </div>
         <div className={`${styles.grid} ${styles.grid2}`}>
           {[

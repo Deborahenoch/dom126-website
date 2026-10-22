@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import FormulaVault from "@/components/atlas/FormulaVault";
-import styles from "../atlas.module.css";
+import styles from "@/components/atlas/atlas.module.css";
 
+/**
+ * The vault is an internal working tool, not a marketing surface, so it is
+ * kept out of the index — but it still describes itself and carries a
+ * canonical that matches its `og:url`, exactly as `/cart` and `/checkout` do.
+ */
 export const metadata: Metadata = {
-  title: "Formula Vault",
-  description:
-    "Store, retrieve, scale and reproduce perfume formulas. Batch weights, layer balance, allergen declarations, compliance flags, formula comparison and printable sheets — saved privately in your own browser.",
+  ...pageMetadata({
+    title: "Perfumery Atlas — Formula Vault",
+    description:
+      "Store, retrieve, scale and reproduce perfume formulas: batch weights, layer balance, allergen declarations, compliance flags and printable sheets.",
+    path: "/atlas/vault",
+  }),
+  robots: { index: false },
 };
 
 export default function VaultPage() {

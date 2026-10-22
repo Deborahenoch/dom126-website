@@ -4,7 +4,7 @@
  * Import from "@/lib/perfumery" rather than reaching into individual modules.
  *
  * WHAT IS IN HERE
- *   materials      ~145 natural and synthetic raw materials, fully tagged
+ *   materials      177 natural and synthetic raw materials, fully tagged
  *   families       SFP seven families, Edwards' wheel, Ellena's nine odour
  *                  fields, the Carles triangle vs. the Grojsman structure,
  *                  concentration classes, the dose ladder

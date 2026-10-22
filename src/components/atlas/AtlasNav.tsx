@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "@/app/atlas/atlas.module.css";
+import styles from "./atlas.module.css";
 
 export const ATLAS_NAV = [
   { href: "/atlas", label: "Overview" },

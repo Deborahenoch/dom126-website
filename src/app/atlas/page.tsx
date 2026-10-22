@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { materials, originBreakdown, euAllergens } from "@/lib/perfumery/materials";
 import { accords } from "@/lib/perfumery/accords";
 import { families } from "@/lib/perfumery/families";
 import { reconstructions, quantifiedLineCounts } from "@/lib/perfumery/classics";
 import { techniques, limitations, caseStudies } from "@/lib/perfumery/gcms";
-import styles from "./atlas.module.css";
+import styles from "@/components/atlas/atlas.module.css";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Perfumery Atlas",
   description:
-    "A working reference on natural and synthetic perfume materials, olfactory families, structural accords, documented GC-MS reconstructions of classic perfumes, and a private formula vault.",
-};
+    "A working reference on perfume materials, olfactory families, structural accords, documented GC-MS reconstructions of classics, and a private formula vault.",
+  path: "/atlas",
+});
 
 const SECTIONS = [
   {
@@ -32,7 +34,7 @@ const SECTIONS = [
   {
     href: "/atlas/classics",
     title: "Classic studies",
-    body: "Twenty-one documented structural reconstructions of great perfumes, grouped into six families, with the quantified loadings the source gives, the lineage between them, and what has to change to rebuild any of them legally today.",
+    body: "Thirty documented structural reconstructions of great perfumes, grouped into six families, with the quantified loadings the source gives, the lineage between them, and what has to change to rebuild any of them legally today.",
   },
   {
     href: "/atlas/gcms",
@@ -361,9 +363,10 @@ export default function AtlasPage() {
               smelling strip does, separating a blend roughly into its most volatile, less volatile
               and most tenacious groups, but far faster and far more thoroughly. That framing is the
               right one. It is an enormously better blotter and it is not a perfumer. Of{" "}
-              {limitations.length} documented limits on the method, three are hard stops rather than
+              {limitations.length} documented limits on the method, four are hard stops rather than
               inconveniences: captive molecules that exist in no library, the non-volatile fraction
-              that never reaches the column, and the fact that peak area is not odour impact.
+              that never reaches the column, the fact that peak area is not odour impact, and the
+              fact that a faithful reconstruction of a classic may simply be illegal to sell today.
             </p>
           </div>
         </div>

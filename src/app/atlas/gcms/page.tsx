@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import {
   techniques,
@@ -10,13 +11,14 @@ import {
   legalNote,
   benchProtocol,
 } from "@/lib/perfumery/gcms";
-import styles from "../atlas.module.css";
+import styles from "@/components/atlas/atlas.module.css";
 
-export const metadata: Metadata = {
-  title: "Reverse Engineering by GC-MS",
+export const metadata: Metadata = pageMetadata({
+  title: "Perfumery Atlas — Reverse Engineering by GC-MS",
   description:
-    "How perfume reverse engineering by gas chromatography actually works: the techniques, a twelve-step reconstruction workflow, eleven documented limits of the method, and a comparison against published analytical studies of perfume twins, counterfeits and aroma reconstruction.",
-};
+    "How perfume reverse engineering by gas chromatography works: 10 techniques, a 12-step workflow, 11 documented limits and 12 published case studies.",
+  path: "/atlas/gcms",
+});
 
 export default function GcmsPage() {
   const blocks = limitations.filter((l) => l.severity === "block").length;

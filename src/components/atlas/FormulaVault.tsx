@@ -35,7 +35,7 @@ import {
   round,
 } from "@/lib/perfumery/formula";
 import type { ConcentrationClass, Formula } from "@/lib/perfumery/types";
-import styles from "@/app/atlas/atlas.module.css";
+import styles from "./atlas.module.css";
 
 type Tab = "edit" | "batch" | "check" | "compare" | "export";
 

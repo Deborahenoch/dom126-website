@@ -91,11 +91,11 @@ of marketing navigation.
 | Route | Contents |
 | --- | --- |
 | `/atlas` | Overview, sources, and a calibration table showing how much of each classic study is actually quantified |
-| `/atlas/materials` | ~145 natural and synthetic materials, filterable by origin, volatility, odour field and regulatory flag |
+| `/atlas/materials` | 177 natural and synthetic materials (69 natural, 102 synthetic or isolated, 6 bases), filterable by origin, volatility, odour field and regulatory flag |
 | `/atlas/families` | SFP seven families, Edwards' wheel, Ellena's nine odour fields, Carles' triangle vs. the modern minimal structure, concentration classes, the dose ladder |
 | `/atlas/accords` | 23 buildable accords in parts per thousand, with substitutions and provenance |
-| `/atlas/classics` | 21 documented structural reconstructions of great perfumes in six families |
-| `/atlas/gcms` | Reverse engineering by GC-MS: techniques, a 12-step workflow, 11 documented limits, 11 published case studies, bench protocol, legal note |
+| `/atlas/classics` | 30 documented structural reconstructions of great perfumes in six families |
+| `/atlas/gcms` | Reverse engineering by GC-MS: techniques, a 12-step workflow, 11 documented limits (4 of them hard stops), 12 published case studies, bench protocol, legal note |
 | `/atlas/vault` | **The app.** Store formulas on-device, scale to any batch, get gram weights and dilution advice, check allergens and compliance, compare a trial against a target, print the sheet |
 
 ### Where the data lives
@@ -131,6 +131,23 @@ export/import is for.
 `src/app/api/formulas/[id]/route.ts`, then swap the persistence functions in
 `VaultProvider.tsx` for fetch calls. Nothing else changes — no calculation code
 moves, because `formula.ts` never touches storage.
+
+### Atlas metadata
+
+The Atlas uses the site's shared SEO helpers rather than hand-rolling metadata:
+
+- Every route builds its metadata through `pageMetadata()` (`src/lib/seo.ts`),
+  so canonical URLs, Open Graph tags and the social card stay consistent with
+  the rest of the site.
+- `/atlas/materials` and `/atlas/accords` are interactive, and a client
+  component cannot export `metadata`. They follow the `/cart` pattern: a server
+  `page.tsx` holds the metadata and renders `MaterialsView` / `AccordsView`.
+- `/atlas/vault` is `noindex` — it is an internal working tool, not a marketing
+  surface. It is therefore also left out of `sitemap.ts`, so the sitemap cannot
+  contradict the page's own metadata. The five reference routes are listed.
+- `src/app/atlas/layout.tsx` sets no `title.template`. The root template
+  (`%s | DOM126 Fragrances`) applies to the whole section; a nested one would
+  double-brand the section index.
 
 ### Content rules baked into the Atlas data
 
@@ -228,10 +245,12 @@ geometry (grid columns, sticky header, touch targets).
 ```
 src/
   app/                  # routes (home, shop, product/[slug], custom-signature,
-                        # cart, checkout(+confirmation), about, faq, contact,
-                        # shipping, privacy, terms, sitemap, robots,
+                        # cart, checkout(+confirmation), atlas/*, about, faq,
+                        # contact, shipping, privacy, terms, sitemap, robots,
                         # manifest.webmanifest, favicon/apple icons)
   components/
+    atlas/              # Atlas nav, vault provider + vault UI, materials and
+                        # accord browsers, shared atlas.module.css
     brand/              # Logo
     cart/               # CartProvider (state + persistence), drawer, steppers
     checkout/           # Checkout + confirmation views

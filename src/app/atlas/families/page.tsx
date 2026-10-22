@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import {
   families,
@@ -11,13 +12,14 @@ import {
   ellenaDoseScale,
 } from "@/lib/perfumery/families";
 import { getMaterial } from "@/lib/perfumery/materials";
-import styles from "../atlas.module.css";
+import styles from "@/components/atlas/atlas.module.css";
 
-export const metadata: Metadata = {
-  title: "Families & Structure",
+export const metadata: Metadata = pageMetadata({
+  title: "Perfumery Atlas — Families & Structure",
   description:
-    "The SFP seven families, Edwards' fragrance wheel, Ellena's nine odour fields, the Carles structural triangle against the modern minimal structure, concentration classes and the perfumer's dose ladder.",
-};
+    "The SFP seven families, Edwards' fragrance wheel, Ellena's nine odour fields, the Carles triangle, concentration classes and the perfumer's dose ladder.",
+  path: "/atlas/families",
+});
 
 export default function FamiliesPage() {
   return (
