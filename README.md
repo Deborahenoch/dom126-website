@@ -35,6 +35,7 @@ Requirements: Node.js ≥ 18.18.
 | WhatsApp ordering (official number: +234 912 916 8474) | ✅ Live — product pages, cart drawer & order confirmation |
 | FAQ accordion (+ FAQ structured data) | ✅ Live |
 | Contact, About, Shipping, Privacy, Terms | ✅ Live (policies marked as drafts) |
+| **Perfumery Atlas** (internal reference + Formula Vault) | ✅ Live — `/atlas` |
 | Online payment (Paystack or similar) | 🔜 Integration point ready |
 | Analytics (GA4 / Meta Pixel) | 🔜 Env-configured, off by default |
 
@@ -80,6 +81,96 @@ checkout, sitemap and structured data all update automatically.
 `notes` field is reserved and only renders when the brand supplies it. The same
 discipline applies to policies, reviews (a clearly-labelled placeholder until
 real reviews exist) and delivery details.
+
+## Perfumery Atlas (`/atlas`) — internal reference and formula vault
+
+A private working reference for building fragrance from raw materials. It is
+not a shop surface: nothing in it is for sale, and it is deliberately kept out
+of marketing navigation.
+
+| Route | Contents |
+| --- | --- |
+| `/atlas` | Overview, sources, and a calibration table showing how much of each classic study is actually quantified |
+| `/atlas/materials` | ~145 natural and synthetic materials, filterable by origin, volatility, odour field and regulatory flag |
+| `/atlas/families` | SFP seven families, Edwards' wheel, Ellena's nine odour fields, Carles' triangle vs. the modern minimal structure, concentration classes, the dose ladder |
+| `/atlas/accords` | 23 buildable accords in parts per thousand, with substitutions and provenance |
+| `/atlas/classics` | 21 documented structural reconstructions of great perfumes in six families |
+| `/atlas/gcms` | Reverse engineering by GC-MS: techniques, a 12-step workflow, 11 documented limits, 11 published case studies, bench protocol, legal note |
+| `/atlas/vault` | **The app.** Store formulas on-device, scale to any batch, get gram weights and dilution advice, check allergens and compliance, compare a trial against a target, print the sheet |
+
+### Where the data lives
+
+All of it is in `src/lib/perfumery/` as typed TypeScript modules, with
+`index.ts` as the single entry point:
+
+```
+src/lib/perfumery/
+  types.ts        shared shapes (Material, Accord, Reconstruction, Formula…)
+  materials.ts    the raw-materials reference
+  families.ts     classification systems + structural theory
+  accords.ts      buildable starting formulas
+  classics.ts     documented study reconstructions
+  gcms.ts         reverse-engineering playbook + literature comparison
+  formula.ts      the vault engine — pure calculation, no storage, no React
+```
+
+`formula.ts` is deliberately storage-agnostic and side-effect-free so the same
+maths can be reused in a future API route. Persistence lives entirely in
+`src/components/atlas/VaultProvider.tsx`, which follows the same `localStorage`
+pattern as the cart.
+
+### Formula Vault storage model
+
+Formulas are stored in the visitor's own browser (`dom126_formula_vault_v1`)
+and nowhere else — no account, no server. That is deliberate: a formula is the
+most commercially sensitive document a fragrance house owns. The trade-off is
+that formulas do not follow you between devices, which is what the JSON
+export/import is for.
+
+**To move to shared storage later:** add `src/app/api/formulas/route.ts` and
+`src/app/api/formulas/[id]/route.ts`, then swap the persistence functions in
+`VaultProvider.tsx` for fetch calls. Nothing else changes — no calculation code
+moves, because `formula.ts` never touches storage.
+
+### Content rules baked into the Atlas data
+
+These are enforced in the data files themselves and documented in the header of
+each one:
+
+1. **No trade formula appears anywhere.** Formulas are confidential and are not
+   published. Nothing here claims otherwise.
+2. **Percentages on named commercial perfumes come from one published study** —
+   Calkin & Jellinek, *Perfumery: Practice and Principles* (Wiley, 1994), ch. 12
+   — which states its own figures are "only guidelines to the main structure",
+   not complete formulas. Every entry carries its source and a
+   `quantifiedCoverage` field recording how much of the formula the source
+   actually puts numbers on. Where the source names a material without
+   quantifying it, **no number has been invented**.
+3. **Accord proportions are labelled as ours.** The source books deliberately
+   publish accords as material lists without quantities; the parts-per-thousand
+   figures are conventional starting points assembled for this Atlas and marked
+   as such in each `provenance` field.
+4. **CAS numbers are omitted rather than guessed.**
+5. **Regulatory flags are a study aid, never a compliance check.** They
+   summarise IFRA Standards and EU Regulation 1223/2009 as amended by
+   Regulation (EU) 2023/1545. The vault shows a standing disclaimer to that
+   effect, and flags materials that are prohibited outright (Lyral, Lilial,
+   nitro musks) as blocking rather than merely cautionary.
+6. **No therapeutic or aromatherapy claims** anywhere in the data.
+
+### Verifying the Atlas
+
+```bash
+npm run typecheck && npm run lint && npm run build
+```
+
+The calculation engine is covered by a standalone sanity script that checks
+referential integrity (every accord component and reconstruction line resolves
+to a real material), batch and dilution maths, allergen scaling, formula
+comparison reflexivity, compliance blocking, the dose ladder, and the text
+import/export round-trip.
+
+---
 
 ## Site configuration
 
@@ -152,6 +243,7 @@ src/
     ui/                 # Buttons, accordion, breadcrumbs, reveal, price…
   lib/                  # products, site-config, seo (shared metadata), faq,
                         # orders, whatsapp, fonts
+                        # perfumery/ — Atlas reference data + formula vault engine
 scripts/                # build tooling + QA suites
 public/images/          # drop real photography here (see table above)
 ```

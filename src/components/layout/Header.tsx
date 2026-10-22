@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { label: "Shop", href: "/shop" },
   { label: "Fragrances", href: "/shop?category=fragrance" },
   { label: "Custom Signature", href: "/custom-signature" },
+  { label: "Atlas", href: "/atlas" },
   { label: "About", href: "/about" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
